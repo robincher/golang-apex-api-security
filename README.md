@@ -2,7 +2,7 @@
 
 A golang http signature library for APEX 
 
-*Currently still in designing and testing phase
+*Currently still in designing and testing phase*
 
 ## Security Standards
 
