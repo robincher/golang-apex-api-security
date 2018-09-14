@@ -4,6 +4,8 @@ A golang http signature library for APEX
 
 *Currently still in designing and testing phase*
 
+Work in collaboration with my colleagues
+
 ## Security Standards
 
 1. RSA256 HTTP Signature
