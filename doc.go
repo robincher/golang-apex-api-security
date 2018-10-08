@@ -4,7 +4,7 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package apexsinger implements utility that conveniently generate a HTTP Signature for APEX L1 - HMAC256 or
+Package apexsigner implements utility that conveniently generate a HTTP Signature for APEX L1 - HMAC256 or
 APEXL2 - RSA256 security policy
 
 The name apexsigner stands for "APEX HTTP Signature Signer". Akin to the standard
@@ -83,5 +83,4 @@ After getting the Signature Token, just append it to the Http Header's Authoriza
 	req.Header.Add("Authorization", apexAuthHeader)
 
 */
-
 package apexsigner
