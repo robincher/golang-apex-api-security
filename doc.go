@@ -7,7 +7,9 @@
 Package apexsigner implements utility that conveniently generate a HTTP Signature.
 
 The security standards supported are
+
 1. APEX L1 - HMAC256
+
 2. APEX L2 - RSA256
 
 The name apexsigner stands for "APEX HTTP Signature Signer". Akin to the HTTP signature (HMAC & RSA) standard
