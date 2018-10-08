@@ -14,3 +14,5 @@
 # Project files
 .vscode/*
 bin/*
+output/*.html
+output/*.out

@@ -131,7 +131,7 @@ We have plans to remove this inconsistency in the near future, so for now do ind
 
 If the API you are accessing is secured with an APEX L1 policy, you need to provide the generated App secret that corresponds to the `AppID` provided.
 
-5b. `PrivateCertFileName` and `Passphrase`  - For APEX L2 Security 
+5b. `PrivateCertFileName and `Passphrase`  - For APEX L2 Security 
 
 If the API you are access is secured with an APEX L2 policy, you need to provide the private key and passphrase corresponding to the public key uploaded for `AppID`.
 
