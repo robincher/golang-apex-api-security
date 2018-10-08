@@ -4,37 +4,39 @@
 // license that can be found in the LICENSE file.
 
 /*
-Package apexsigner implements utility that conveniently generate a HTTP Signature for APEX L1 - HMAC256 or
-APEXL2 - RSA256 security policy
+Package apexsigner implements utility that conveniently generate a HTTP Signature.
 
-The name apexsigner stands for "APEX HTTP Signature Signer". Akin to the standard
+The security standards supported are
+1. APEX L1 - HMAC256
+2. APEX L2 - RSA256
+
+The name apexsigner stands for "APEX HTTP Signature Signer". Akin to the HTTP signature (HMAC & RSA) standard
 defined in IETF, apexsigner generates a HTTP signature with a given set of parameters specified
 by the API Gateway.
 
-
 Let's start by creating a request object(struct) for apexsigner
 
-type APIParam struct {
-	Realm        string `json:"realm"`
-	AppID        string `json:"appId"`
-	AuthPrefix   string `json:"authPrefix"`
-	Secret       string `json:"secret"`
-	InvokeURL    string `json:"invokeUrl"`
-	SignatureURL string `json:"signatureUrl"`
+	type APIParam struct {
+		Realm        string `json:"realm"`
+		AppID        string `json:"appId"`
+		AuthPrefix   string `json:"authPrefix"`
+		Secret       string `json:"secret"`
+		InvokeURL    string `json:"invokeUrl"`
+		SignatureURL string `json:"signatureUrl"`
 
-	HTTPMethod string `json:"httpMethod"`
-	Signature  string `json:"signature"`
+		HTTPMethod string `json:"httpMethod"`
+		Signature  string `json:"signature"`
 
-	PrivateCertFileName string `json:"privateCertFileName"`
-	Passphrase          string
-	SignatureMethod     string `json:"signatureMethod"`
-	Nonce               string `json:"nonce"`
-	Timestamp           string `json:"timestamp"`
-	Version             string `json:"version"`
+		PrivateCertFileName string `json:"privateCertFileName"`
+		Passphrase          string
+		SignatureMethod     string `json:"signatureMethod"`
+		Nonce               string `json:"nonce"`
+		Timestamp           string `json:"timestamp"`
+		Version             string `json:"version"`
 
-	QueryString map[string]interface{} `json:"queryString"`
-	FormData    map[string]interface{} `json:"formData"`
-}
+		QueryString map[string]interface{} `json:"queryString"`
+		FormData    map[string]interface{} `json:"formData"`
+	}
 
 Preparing the request options
 
