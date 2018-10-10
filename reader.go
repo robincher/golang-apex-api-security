@@ -55,10 +55,12 @@ func parsePublicKeyFromCert(publicKeyFilePath string) (*rsa.PublicKey, error) {
 // parsePrivateKeyFromPEM - Retrieve the private from a .pem  file extension
 // It returns the private key contents
 func parsePrivateKeyFromPEM(privateKeyFilePath string, passphrase string) (privateKey *rsa.PrivateKey, err error) {
+	privateKeyFileName := filepath.Base(privateKeyFilePath)
+
 	// Read the private key
 	pemData, err := ioutil.ReadFile(privateKeyFilePath)
 	if err != nil {
-		return nil, fmt.Errorf("Unable to open file %s", privateKeyFilePath)
+		return nil, fmt.Errorf("Unable to open file %s", privateKeyFileName)
 	}
 
 	// Extract the PEM-encoded data block
@@ -99,9 +101,7 @@ func parsePrivateKeyFromPEM(privateKeyFilePath string, passphrase string) (priva
 	}
 
 	if privateKey == nil {
-		path := privateKeyFilePath
-		fileName := filepath.Base(path)
-		return nil, fmt.Errorf("Unable to read private key from %s", fileName)
+		return nil, fmt.Errorf("Unable to read private key from %s", privateKeyFileName)
 	}
 
 	return privateKey, nil
