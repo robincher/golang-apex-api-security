@@ -15,7 +15,7 @@ func parsePublicKeyFromKey(publicKeyFilePath string) (*rsa.PublicKey, error) {
 	// Read the private key
 	pemData, err := ioutil.ReadFile(publicKeyFilePath)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("Unable to open file %s", publicKeyFilePath)
 	}
 
 	block, _ := pem.Decode(pemData)
