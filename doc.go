@@ -6,15 +6,15 @@
 /*
 Package apexsigner implements utility that conveniently generate a HTTP Signature.
 
-The security standards supported are
+The APEX security standards supported are
 
 1. APEX L1 - HMAC256
 
 2. APEX L2 - RSA256
 
-The name apexsigner stands for "APEX HTTP Signature Signer". Akin to the HTTP signature (HMAC & RSA) standard
+The name apexsigner stands for "APEX HTTP Signature Signer". Similar to the HTTP signature (HMAC & RSA) standard
 defined in IETF, apexsigner generates a HTTP signature with a given set of parameters specified
-by the API Gateway.
+by the API Gateway. The API Gateway will verified the HTTP signature against the corresponding public key uploaded.
 
 Let's start by creating a request object(struct) for apexsigner
 
