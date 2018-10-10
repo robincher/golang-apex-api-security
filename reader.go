@@ -58,7 +58,7 @@ func parsePrivateKeyFromPEM(privateKeyFilePath string, passphrase string) (priva
 	// Read the private key
 	pemData, err := ioutil.ReadFile(privateKeyFilePath)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("Unable to open file %s", privateKeyFilePath)
 	}
 
 	// Extract the PEM-encoded data block
