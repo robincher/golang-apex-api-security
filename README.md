@@ -1,5 +1,6 @@
 # Golang HTTP Signature Signer for APEX
-
+[![Codeship Status for robincher/golang-apex-api-security](https://app.codeship.com/projects/55d5cbb0-ae9d-0136-6b4c-7a884fd9a31a/status?branch=master)](https://app.codeship.com/projects/309966)
+[![Go Report Card](https://goreportcard.com/badge/github.com/robincher/golang-apex-api-security)](https://goreportcard.com/report/github.com/robincher/golang-apex-api-security)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
