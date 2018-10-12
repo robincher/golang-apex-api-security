@@ -28,7 +28,7 @@ func getRSASignature(message string, privateKey *rsa.PrivateKey) (string, error)
 // It returns the HMAC Signature
 func getHMACSignature(message string, secret string) (string, error) {
 	if message == "" || secret == "" {
-		return "", fmt.Errorf("message and secret must not be null or empty!")
+		return "", fmt.Errorf("message and secret must not be null or empty")
 	}
 
 	messageHMAC := hmac.New(sha256.New, []byte(secret))
