@@ -64,7 +64,7 @@ func parsePrivateKeyFromPEM(privateKeyFilePath string, passphrase string) (priva
 	// Extract the PEM-encoded data block
 	block, _ := pem.Decode(pemData)
 	if block == nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to parse certificate PEM")
 	}
 
 	if got, want := block.Type, "RSA PRIVATE KEY"; got == want {
