@@ -101,7 +101,7 @@ func parsePrivateKeyFromPEM(privateKeyFilePath string, passphrase string) (priva
 	if privateKey == nil {
 		path := privateKeyFilePath
 		fileName := filepath.Base(path)
-		return nil, fmt.Errorf("Unable to read private key from %v", fileName)
+		return nil, fmt.Errorf("unable to read private key from %v", fileName)
 	}
 
 	return privateKey, nil
