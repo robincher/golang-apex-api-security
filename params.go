@@ -95,7 +95,7 @@ func getDefaultParam(baseProps APIParam) ([][]string, error) {
 }
 
 // Search ()
-func (param ArrayNameValuePair) Search(name string) string {
+func (param ArrayNameValuePair) searchFirst(name string) string {
 	for _, value := range param.nameValue {
 		if value[0] == name {
 			return value[1]

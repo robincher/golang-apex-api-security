@@ -18,12 +18,12 @@ func Test_defaultParams(t *testing.T) {
 
 		// timestamp value not set in input param, update the expected result after getDefaultParam set the value
 		if param.APIParam.Timestamp == "" {
-			param.setExpectedResult(fmt.Sprintf(param.getExpectedResult(), (ArrayNameValuePair{nameValue: result}).Search(strings.ToLower(param.APIParam.AuthPrefix)+"_timestamp")))
+			param.setExpectedResult(fmt.Sprintf(param.getExpectedResult(), (ArrayNameValuePair{nameValue: result}).searchFirst(strings.ToLower(param.APIParam.AuthPrefix)+"_timestamp")))
 		}
 
 		// nonce value not set in input param, update the expected result after getDefaultParam set the value
 		if param.APIParam.Nonce == "" {
-			param.setExpectedResult(fmt.Sprintf(param.getExpectedResult(), (ArrayNameValuePair{nameValue: result}).Search(strings.ToLower(param.APIParam.AuthPrefix)+"_nonce")))
+			param.setExpectedResult(fmt.Sprintf(param.getExpectedResult(), (ArrayNameValuePair{nameValue: result}).searchFirst(strings.ToLower(param.APIParam.AuthPrefix)+"_nonce")))
 		}
 
 		paramString := (ArrayNameValuePair{nameValue: result}).Stringify()
