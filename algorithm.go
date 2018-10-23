@@ -61,7 +61,7 @@ func signPKCS1v15(rsaPrivateKey *rsa.PrivateKey, message string) (base64Signatur
 	return base64Signature, nil
 }
 
-// VerifyHMACSignature - Verify HMAC256 singature given a basestring , app secret and signature
+// VerifyHMACSignature - Verify HMAC256 signature given a basestring , app secret and signature
 // It returns the HMAC256 signature
 func VerifyHMACSignature(message string, secret string, signature string) (bool, error) {
 	newSignature, err := getHMACSignature(message, secret)
