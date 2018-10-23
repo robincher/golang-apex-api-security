@@ -3,17 +3,19 @@ package apexsigner
 import (
 	"crypto/rsa"
 	"fmt"
-	"os"
 	"path/filepath"
 	"strconv"
 	"strings"
 	"testing"
 )
 
-var BASEPATH = fmt.Sprintf("%s/src/github.com/GovTechSG/test-suites-apex-api-security/", os.Getenv("GOPATH"))
+var BASEPATH = "./helper/"
+var STUBPATH = fmt.Sprintf("%s/stub/", BASEPATH)
+
+//var BASEPATH = fmt.Sprintf("%s/src/github.com/GovTechSG/test-suites-apex-api-security/", os.Getenv("GOPATH"))
 
 func Test_defaultParams(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/defaultParams.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"params.json", func(param *TestParam) (string, error) {
 		result, err := getDefaultParam(param.APIParam)
 
 		// timestamp value not set in input param, update the expected result after getDefaultParam set the value
@@ -33,13 +35,13 @@ func Test_defaultParams(t *testing.T) {
 }
 
 func Test_l1Signature(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/getL1Signature.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"hmac_sig.json", func(param *TestParam) (string, error) {
 		return getHMACSignature(param.Message, param.APIParam.Secret)
 	})
 }
 
 func Test_L2Signature(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/getL2Signature.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"rsa_sig.json", func(param *TestParam) (string, error) {
 		result := ""
 
 		privateKey, err := parsePrivateKeyFromPEM(BASEPATH+param.APIParam.PrivateCertFileName, param.APIParam.Passphrase)
@@ -52,13 +54,13 @@ func Test_L2Signature(t *testing.T) {
 }
 
 func Test_getSignatureBaseString(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/getSignatureBaseString.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"basestring.json", func(param *TestParam) (string, error) {
 		return getSignatureBaseString(param.APIParam)
 	})
 }
 
 func Test_getSignatureToken(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/getSignatureToken.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"sig_token.json", func(param *TestParam) (string, error) {
 		dynamicTimestamp := false
 		if param.APIParam.Timestamp == "" {
 			dynamicTimestamp = true
@@ -87,14 +89,14 @@ func Test_getSignatureToken(t *testing.T) {
 }
 
 func Test_verifyL1Signature(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/verifyL1Signature.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"hmac_sig_verify.json", func(param *TestParam) (string, error) {
 		result, err := VerifyHMACSignature(param.Message, param.APIParam.Secret, param.APIParam.Signature)
 		return strconv.FormatBool(result), err
 	})
 }
 
 func Test_verifyL2Signature(t *testing.T) {
-	executeTest(t, BASEPATH+"testData/verifyL2Signature.json", func(param *TestParam) (string, error) {
+	executeTest(t, STUBPATH+"rsa_sig_verify.json", func(param *TestParam) (string, error) {
 		//t.Logf(">>> filetype %s -- %s <<<", filepath.Ext(param.PublicCertFileName), param.PublicCertFileName)
 		result := false
 		var publicKey *rsa.PublicKey

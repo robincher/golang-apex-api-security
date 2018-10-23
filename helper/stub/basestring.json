@@ -1,0 +1,186 @@
+[
+    {
+        "id": "1",
+        "description": "BaseString - QueryString Test - param2 with empty value (?param1=x&param2&param3=m)",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2&param3=m",
+            "httpMethod": "POST"
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m"
+        }
+    },
+    {
+        "id": "2",
+        "description": "BaseString - QueryString Test - param2= with empty value (?param1=x&param2=&param3=m)",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex/1?param1=x&param2=&param3=m",
+            "httpMethod": "POST"
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex/1&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3=m"
+        }
+    },
+    {
+        "id": "3",
+        "description": "BaseString - QueryString Test - queryString object with empty and/or null values ({ \"param1\" : \"x\", \"param2\" : \"\", \"param3\" : null })",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex",
+            "httpMethod": "POST",
+
+            "queryString" : { "param1" : "x", "param2" : "", "param3" : null }
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=x&param2&param3"
+        }
+    },
+    {
+        "id": "4",
+        "description": "BaseString - QueryString Test - queryString with array field",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1x&param1=value1m",
+            "httpMethod": "POST"
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1m&param1=value1x"
+        }
+    },
+    {
+        "id": "5",
+        "description": "BaseString - QueryString Test - queryString object with array field",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex",
+            "httpMethod": "POST",
+
+            "queryString" : { "param1x" : [ "value1x", "value1m" ], "param2x" : "value2b" }
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1x=value1m&param1x=value1x&param2x=value2b"
+        }
+    },
+    {
+        "id": "6",
+        "description": "BaseString - QueryString Test - queryString object with integer, boolean and json object fields",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex",
+            "httpMethod": "POST",
+
+            "queryString" : { "param1h" : false, "param1o" : true, "param1a" : 899, "param1c" : [ "value1cz", "value1cf"], "jasonObject" : { "objectParam1" : "oParam1c", "objectParam2" : "oParam2b" } }
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObject&param1a=899&param1c=value1cf&param1c=value1cz&param1h=false&param1o=true"
+        }
+    },
+    {
+        "id": "7",
+        "description": "BaseString - QueryString Test - Multiple queryString in url and queryString object",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2",
+            "httpMethod": "POST",
+
+            "queryString" : { "value1" : [ "value1x", "value1m" ], "param2" : "value2b" }
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2&param2=value2b&value1=value1m&value1=value1x"
+        }
+    },
+    {
+        "id": "8",
+        "description": "BaseString - QueryString Test - queryString object with integer, boolean and json object fields",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex",
+            "httpMethod": "POST",
+
+            "queryString" : { "param1h" : false, "param1o" : true, "param1a" : 899, "zParam12" : 123.573389, "param1c" : [ "value1cz", "value1cf", 123, true, 32.935643 ], "jasonObjectA" : { "objectParam1" : "oParam1c", "objectParam2" : "oParam2b" } },
+            "formData" : { "param1h" : false, "param1o" : true, "param1a" : 899, "zParam11" : 123.5474389, "param1c" : [ "value1cz", "value1cf", 123, true, 32.99756543 ], "jasonObjectB" : { "objectParam1" : "oParam1c", "objectParam2" : "oParam2b" } }
+        },
+        "expectedResult" : {
+            "default" : "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&jasonObjectA&jasonObjectB&param1a=899&param1a=899&param1c=123&param1c=123&param1c=32.935643&param1c=32.99756543&param1c=true&param1c=true&param1c=value1cf&param1c=value1cf&param1c=value1cz&param1c=value1cz&param1h=false&param1h=false&param1o=true&param1o=true&zParam11=123.5474389&zParam12=123.573389"
+        }
+    },
+    {
+        "id": "9",
+        "description": "BaseString - QueryString Test - QueryString with uppercase name",
+
+        "apiParam" : {
+            "realm": "apex.queryString.test",
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            
+            "nonce" : "ACn0OmdVmWpqo8N+eyA=",
+            "timestamp" : "1536309473067",
+
+            "signatureUrl": "https://training.api.lab:443/ai/training/rest/v1/level2/ex-ex?param1=value1&param2=value2",
+            "httpMethod": "POST",
+
+            "queryString" : { "MessageBody" : [ "value1x", "value1m" ], "Action" : "SendMessage" }
+        },
+        "expectedResult" : {
+            "default": "POST&https://training.api.lab/ai/training/rest/v1/level2/ex-ex&Action=SendMessage&MessageBody=value1m&MessageBody=value1x&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=ACn0OmdVmWpqo8N+eyA=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536309473067&apex_l2_eg_version=1.0&param1=value1&param2=value2"
+        }
+    }
+]

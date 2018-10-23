@@ -1,0 +1,54 @@
+[
+    {
+        "id" : "1",
+        "description" : "verifyHMACSignature - Baseline",
+
+        "message" : "message",
+        "apiParam" : {
+            "secret" : "secret",
+            "signature" : "i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs="
+        },
+        "expectedResult" : {
+            "default": "true"
+        }
+    },
+    {
+        "id" : "2",
+        "description" : "verifyHMACSignature - Validate with wrong secret",
+
+        "message" : "message",
+        "apiParam" : {
+            "secret" : "secretX",
+            "signature" : "i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs="
+        },
+        "expectedResult" : {
+            "default": "false"
+        }
+    },
+    {
+        "id" : "3",
+        "description" : "verifyHMACSignature - Validate with wrong message",
+
+        "message" : "messageX",
+        "apiParam" : {
+            "secret" : "secret",
+            "signature" : "i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs="
+        },
+        "expectedResult" : {
+            "default": "false"
+        }
+    },
+    {
+        "id" : "4",
+        "description" : "verifyHMACSignature - Validate with wrong signature",
+
+        "message" : "message",
+        "apiParam" : {
+            "secret" : "secret",
+            "signature" : "i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs=X"
+        },
+        "expectedResult" : {
+            "default": "false"
+        }
+    }
+]

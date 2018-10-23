@@ -1,0 +1,234 @@
+[
+    {
+        "id": "1",
+        "description": "getRSASignature - Baseline - PEM file without passphrase",
+
+        "message" : "message",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.nopass.pem"
+        },
+
+        "testTag" : true,
+        "expectedResult": {
+        	"default": "BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g=="
+        }
+    },
+    {
+        "id": "2",
+        "description": "getRSASignature - Baseline - PEM file with passphrase",
+
+        "message" : "message",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+
+        "testTag" : true,
+        "expectedResult" : {
+            "default": "BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g=="
+        }
+    },
+    {
+        "id": "3.1",
+        "description": "getRSASignature - message is null",
+
+        "message" : null,
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.nopass.pem"
+        },
+
+        "testTag" : true,
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "message and privateKey must not be null or empty",
+            "java": "baseString must not be null or empty."
+        }
+    },
+    {
+        "id": "3.2",
+        "description": "getRSASignature - message is empty",
+
+        "message" : "",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.nopass.pem"
+        },
+
+        "testTag" : true,
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "message and privateKey must not be null or empty",
+            "java": "baseString must not be null or empty."
+        }
+    },
+    {
+        "id" : "4",
+        "description" : "getRSASignature - message is utf8",
+
+        "message" : "Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi.",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "dN+kQ7h8mDRzejh2SdgEHemfCBR0tjHSxN61eHkGRw2fUhOIF5/3TcqgQlNxpybvVXKAFaJ1eR1m4111Z2Wqd3dB7Wq5YSko6li54mpGZiqv6s3hGszwOfGxANt3cqKz730IBDb0yAzJnMAnwFIKoTGHZZ8xtgd3m94r+a0tdEZA0JM3zE5kKwcym8j64M+cwNca86XCSk7WTR8SaLMl5LFDDtXTgPjqTaygHLMB6BIE+gbRjb4OmGcg8U8sXTAtgmKcAkYZU2Z0oubEOv7fmC9mgNCD0lVHDi79J9PbjjSB9kmVGBL8KftCLt3/nX31EqhMNjMlMC63sHWEX+eBTQ=="
+        }
+    },
+    {
+        "id" : "5",
+        "description" : "getRSASignature - message is utf8(Chinese Traditional)",
+
+        "message" : "道続万汁国圭絶題手事足物目族月会済。",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "mtgXN0AYSa7MRkgoEPR3ie4tmQcV1R+F25J6otjOLO7nhS7mqQq+lnl+pyQKHoqpw3milrqoyrgLziyACJt3u6gqY+GJvY0RC3mwalREVPVi+iuSYst5YjS+xA78nK54TzRDmTHlxyVQFYph6RrM3LO8FSBHnClfHl3mrfGqimKxdjQSPojk4EAIe4weUIerD2zSHxWkmj+Jlpxs54RjSTCHCt43MElNC7epGH0VZP4iXZf3aV3UhrSKU8yHrvsojuuiX15SVuSFQpGUCk4e7kCSmDQtiOPCn6ojumyoyxVjzpHGScaGBuMzF9C8oxuCnkcRZX7G4AcrLTUIuthggg=="
+        }
+    },
+    {
+        "id" : "6",
+        "description" : "getRSASignature - message is utf8(Japanese)",
+
+        "message" : "員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "Kb8jOuOXpeKucrGvoDJowK4F48jjpVcrQkY0w4PuGE1SzdWW4jV5f3tTBaL5eEyr2yjJymV1kX+5wlopNAMqUY3OM+rGhLo/aYgZ1qL0QDc8EC5LWbv+FFf41P1jrUv7pARuoodCHO7eGcdPZYtloBb7JTriTPxwz+hodQ6/ryj9oKK0c53p5svTfacit56dNvhcGufk5jRoPVWhm4fNRQopj/IaEtddmCcEhthhMYZPPZDoI10xBz2VanCvjF+yoiDJURY3wMC0OXpC4WO8rdS8tg0p+RRySzsmeBXrb9OOrP8l25nzdZARNdO1X97PinU1jCksbH8cSi8zombZRQ=="
+        }
+    },
+    {
+        "id" : "7",
+        "description" : "getRSASignature - message is utf8(Korean)",
+
+        "message" : "대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다.",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "WBIB6YF+funu5KsLy0d16oEiljOBI/3jnr0HsrTXkapckVU2dE7MWWmq5/hDlWx5ZF8n/uUxET1HZ3pJ3U3xKeB1ifkQEmxl6t2+BnXkCK+/lDM0IQ6jCUMd8CLUWBrEEDfZpdgikmGopjsUXlMTXcP6qFkj59QN1ZxnA5akxLkRvPm20nnwsSwzwLVhqsgXO+j8knloDrj0Dtk8iYZ5YJtNLe+KkefXhGcwyvmQmJM41+Su7Yt9mumg9qu2CaIj2CKAEq+56Z09IVfk8loNXYtXCbErtzII4QWoIYeFGus0uCMjcxskPUN8tDwry5xKDuWAtWxaCnyVs5RN76592g=="
+        }
+    },
+    {
+        "id" : "8",
+        "description" : "getRSASignature - message is utf8(Greek)",
+
+        "message" : "Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ.",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "Ry6hWPFprIOphfHJQUCh7F4ai7yt7Fl1FgLNUsrfDxSshEgYfAdY9mAeMHbepCl/b85qOcjYa/bqUdvjLhIaDs2LOXzDzRFItPu57Xph6eYDAQE6895wea4fdtlz4oqCRyY62REUZiaM+iMXiGXIWX6OY1R6nGYjjNR5mTrF+3UNmxXmZpVDWaYxgMxXAYKz+3X27o7p5wotRUk3hqzEswCjnKUm7Dh2l9XC9PrmaF1MvteUtVDZ7UAvUC6dOWS9QXUVN9rbIJbn6Z+0rVrl27jiP6GGw6WAzhfFmIMZJfQUjTW+M08OvuaTiJXdpZX7brYLB9pJOhArZMhHWXeA5w=="
+        }
+    },
+    {
+        "id" : "9",
+        "description" : "getRSASignature - L2 BaseString",
+
+        "message" : "GET&https://test.example.com/api/v1/rest/level1/in-in/&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=-4985265956715077053&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502159855341&auth_prefix_version=1.0&param1=def+123",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "TI04ZkbzUOD/3Qrnvgc12a4XB26JTFNsgvD5u5+OpIDX7MUayuZQfnw1BHZUAOwbzIzbwilCjJsUfcu9hVL8idFLaGjQni/ew6A7LmGe+yT6XzodEE4u0U2B2NO6cc9vEezPYbC56/ZrzWLX9JTtGsT4+8viJynm1LmOvsuuIh5Zs9YLw5lReb6lv7UyOfVqeyge8585yGtd9OqTsrHx2ITKp/cOyrGwMh7QMermlZG/aQzMAFdnWLfeji64fLpvaBcZJiu9aN0nErCCjp9XSG3tvACu9Njja++W2o8pDEONYasesFCTqu4pQAlpzJcxKE+/BfteVVd/3pg4ug0tgQ=="
+        }
+    },
+    {
+        "id" : "10",
+        "description" : "getRSASignature - L2 BaseString with UTF8 Parameters",
+
+        "message" : "GET&https://test.example.com/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=2851111144329605674&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502163903712&auth_prefix_version=1.0",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "passwordkey"
+        },
+        "expectedResult" : {
+            "default": "Xrr6IGpnUZwtWQHd2LI+QlQJOpIPE8gAv7t3h1YvslJiA4DD/y1TpR5x5LCYk0ooDhq3Di48Nt8H+Sc/UT3QrKd6jpJrM2e9qK57+RX1ImT437fWz8GYCtdJhEiRjyemg5Eidv/vuLkMsICeNb61gScokgJ7wWdD+dyNlN3ThIdATcNfzrqz2+1b3c0qhovX1CoGlegPBez8vdqpyidqBVz5nPqKHmdnqS11xrxKPVTo6Kx4v/J3IMM7BZ7lRidpyMKYireO+O2+29UPbOAurismLGdtWd9UcA6Iz1Cf4ffPZxsMUY9Y0FubRPuw5RpusFPpI0q3iBu2U4QYc5pA3w=="
+        }
+    },
+
+
+    {
+        "id": "13",
+        "description": "getRSASignature - PEM without Passphrase",
+
+        "message" : "message",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.nopass.pem",
+            "passphrase" : "invalidPassphrase"
+        },
+
+        "testTag" : true,
+        "errorTest" : true,
+        "skipTest" : [ "nodejs","java" ],
+        "expectedResult" : {
+            "default": "",
+            "golang" : "x509: no DEK-Info header in block"
+        }
+    },
+    {
+        "id": "14",
+        "description": "getRSASignature - invalid passphrase",
+
+        "message" : "message",
+
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.key",
+            "passphrase" : "wrongPassphrase"
+        },
+        "testTag" : true,
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "",
+            "golang" : "x509: decryption password incorrect",
+            "nodejs" : "error:06065064:digital envelope routines:EVP_DecryptFinal_ex:bad decrypt",
+            "java" : "exception using cipher - please check password and data."
+
+        }
+    },
+    {
+        "id": "15",
+        "description": "getRSASignature - Invalid PrivateCertFileName",
+
+        "message" : "message",
+        "apiParam" : {
+            "privateCertFileName": "cert/invalidFileName.pem",
+            "passphrase" : "passphrase"
+        },
+
+        "testTag" : true,
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "",
+            "golang" : "Unable to open file invalidFileName.pem",
+            "nodejs" : "ENOENT: no such file or directory, open 'node_modules/test-suites-apex-api-security/cert/invalidFileName.pem'",
+            "java" : "src/main/resources/test-suites/cert/invalidFileName.pem (No such file or directory)"
+
+        }
+    },
+    {
+        "id": "16",
+        "description": "getRSASignature - Invalid PrivateCertFileName format",
+
+        "message" : "message",
+        "apiParam" : {
+            "privateCertFileName": "cert/training.alpha.apex.lab.public.pem",
+            "passphrase" : "passphrase"
+        },
+
+        "testTag" : true,
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "",
+            "golang" : "unable to read private key from training.alpha.apex.lab.public.pem",
+            "nodejs" : "error:0906D06C:PEM routines:PEM_read_bio:no start line",
+            "java" : "org.bouncycastle.cert.X509CertificateHolder cannot be cast to org.bouncycastle.openssl.PEMKeyPair"
+            
+        }
+    }
+]

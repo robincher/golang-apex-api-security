@@ -1,0 +1,186 @@
+[
+    {
+        "id" : "1",
+        "description" : "getHMACSignature - Baseline",
+
+        "message" : "message",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+        "expectedResult" : {
+            "default": "i19IcCmVwVmMVz2x4hhmqbgl1KeU0WnXBgoDYFeWNgs="
+        }
+    },
+    {
+        "id" : "2",
+        "description" : "getHMACSignature - message is null",
+
+        "message" : null,
+        "apiParam" : {
+            "secret" : "secret"
+        },
+
+        "skipTest" : ["c#", "java", "golang", "nodejs"],
+        "expectedResult" : {
+            "default": "+eZuF5tnR65UEI+C+K3os8Jddv0wr95sOVgixTAZYWk="
+        }
+    },
+    {
+        "id" : "2.1",
+        "description" : "getHMACSignature - message is null",
+
+        "message" : null,
+        "apiParam" : {
+            "secret" : "secret"
+        },
+
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "message and secret must not be null or empty",
+            "java": "baseString must not be null or empty."
+        }
+    },
+    {
+        "id" : "2.2",
+        "description" : "getHMACSignature - message is empty",
+
+        "message" : "",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "message and secret must not be null or empty",
+            "java": "baseString must not be null or empty."
+        }
+    },
+    {
+        "id" : "3",
+        "description" : "getHMACSignature - message and secret is null",
+
+        "message" : null,
+        "apiParam" : {
+            "secret" : null
+        },
+
+        "skipTest" : ["c#", "java", "golang", "nodejs"],
+        "expectedResult" : {
+            "default": "thNnmggU2ex3L5XXeMNfxf8Wl8STcVZTxscSFEKSxa0="
+        }
+    },
+    {
+        "id" : "3.1",
+        "description" : "getHMACSignature - secret is null",
+
+        "message" : "message",
+        "apiParam" : {
+            "secret" : null
+        },
+
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "message and secret must not be null or empty",
+            "java": "secret must not be null or empty."
+        }
+    },
+    {
+        "id" : "3.2",
+        "description" : "getHMACSignature - secret is empty",
+
+        "message" : "message",
+        "apiParam" : {
+            "secret" : ""
+        },
+
+        "errorTest" : true,
+        "expectedResult" : {
+            "default": "message and secret must not be null or empty",
+            "java": "secret must not be null or empty."
+        }
+    },
+    {
+        "id" : "4",
+        "description" : "getHMACSignature - message is utf8",
+
+        "message" : "Lorem ipsum dolor sit amet, vel nihil senserit ei. Ne quo erat feugait disputationi.",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+        "expectedResult" : {
+            "default": "cL3lY5/rhmkxMw/dCHCa4b9Lpp/soPPACnIxtQwRQI8="
+        }
+    },
+    {
+        "id" : "5",
+        "description" : "getHMACSignature - message is utf8(Chinese Traditional)",
+
+        "message" : "道続万汁国圭絶題手事足物目族月会済。",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+        "expectedResult" : {
+            "default": "wOHv68zuoiIjfJHW0hZcOk4lORyiAL/IGK8WSkBUnuk="
+        }
+    },
+    {
+        "id" : "6",
+        "description" : "getHMACSignature - message is utf8(Japanese)",
+
+        "message" : "員ちぞど移点お告周ひょ球独狙チウソノ法保断フヒシハ東5広みぶめい質創ごぴ採8踊表述因仁らトつ。",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+        "expectedResult" : {
+            "default": "L0ft4O8R2hxpupJVkLbgQpW0+HRw3KDgNUNf9DAEY7Y="
+        }
+    },
+    {
+        "id" : "7",
+        "description" : "getHMACSignature - message is utf8(Korean)",
+
+        "message" : "대통령은 즉시 이를 공포하여야 한다, 그 자율적 활동과 발전을 보장한다.",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+        "expectedResult" : {
+            "default": "a6qt0t/nQ3GQFAEVTH+LMvEi0D41ZaKqC7LWJcVmHlE="
+        }
+    },
+    {
+        "id" : "8",
+        "description" : "getHMACSignature - message is utf8(Greek)",
+
+        "message" : "Λορεμ ιπσθμ δολορ σιτ αμετ, τατιον ινιμιcθσ τε ηασ, ιν εαμ μοδο ποσσιμ ινvιδθντ.",
+        "apiParam" : {
+            "secret" : "secret"
+        },
+        "expectedResult" : {
+            "default": "WUGjbeO8Jy8Rvs5tD2biLHPR0+qtAmXeZKqX6acYL/4="
+        }
+    },
+    {
+        "id" : "9",
+        "description" : "getHMACSignature - L1 BaseString",
+
+        "message" : "GET&https://test.example.com/api/v1/rest/level1/in-in/&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=-4985265956715077053&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502159855341&auth_prefix_version=1.0&param1=def+123",
+        "apiParam" : {
+            "secret" : "5aes9wG4mQgWJBfKMuYLtrEtNslm1enWG2XpGaMk"
+        },
+        "expectedResult" : {
+            "default": "8NxfLG0pFWEq1gZEttCW4lgrb92MFaqQpeUPRDx4CAE="
+        }
+    },
+    {
+        "id" : "10",
+        "description" : "getHMACSignature - L1 BaseString with UTF8 Parameters",
+
+        "message" : "GET&https://test.example.com/api/v1/rest/level1/in-in/&ap=裕廊坊 心邻坊&auth_prefix_app_id=app-id-lpX54CVNltS0ye03v2mQc0b&auth_prefix_nonce=2851111144329605674&auth_prefix_signature_method=HMACSHA256&auth_prefix_timestamp=1502163903712&auth_prefix_version=1.0",
+        "apiParam" : {
+            "secret" : "5aes9wG4mQgWJBfKMuYLtrEtNslm1enWG2XpGaMk"
+        },
+        "expectedResult" : {
+            "default": "0fE74Vf/Q7nktxeezzrYcvOeq36Pd4CJ7Ez9I00cdJk="
+        }
+    }
+]

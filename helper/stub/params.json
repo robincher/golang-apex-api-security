@@ -1,0 +1,70 @@
+[
+    {
+        "id": "1",
+        "description": "getDefaultParam - Baseline",
+
+        "apiParam" : {
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+
+            "timestamp" : "1536044563255",
+            "nonce" : "HuEN209VggqJ9RQQ0fM="
+        },
+		"skipTest" : [ "java" ],
+        "errorTest" : false,
+        "expectedResult" : {
+            "default": "&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=HuEN209VggqJ9RQQ0fM=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536044563255&apex_l2_eg_version=1.0"
+        }
+    },
+    {
+        "id": "2",
+        "description": "getDefaultParam - Fix Version",
+
+        "apiParam" : {
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+
+            "timestamp" : "1536044563255",
+            "nonce" : "HuEN209VggqJ9RQQ0fM=",
+            "version" : "2.0"
+        },
+		"skipTest" : [ "java" ],
+        "errorTest" : false,
+        "expectedResult" : {
+            "default": "&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=HuEN209VggqJ9RQQ0fM=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=1536044563255&apex_l2_eg_version=2.0"
+        }
+    },
+    {
+        "id": "3",
+        "description": "getDefaultParam - Auto set default value for timestamp",
+
+        "apiParam" : {
+            "authPrefix": "Apex_l2_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+
+            "nonce" : "HuEN209VggqJ9RQQ0fM="
+        },
+		"skipTest" : [ "java" ],
+        "errorTest" : false,
+        "expectedResult" : {
+            "default": "&apex_l2_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l2_eg_nonce=HuEN209VggqJ9RQQ0fM=&apex_l2_eg_signature_method=SHA256withRSA&apex_l2_eg_timestamp=%s&apex_l2_eg_version=1.0"
+        }
+    },
+    {
+        "id": "4",
+        "description": "getDefaultParam - Auto set default value for nonce",
+
+        "apiParam" : {
+            "authPrefix": "Apex_l1_eg",
+            "appId": "training-3O9HWXNyVT0701KyJIZte787",
+            "secret" : "ae9e634c3cea19dad0adae5e1e11dd5ab2fa78c0",
+
+            "timestamp" : "1536044563255"
+        },
+ 		"skipTest" : [ "java" ],       
+        "errorTest" : false,
+        "expectedResult" : {
+            "default": "&apex_l1_eg_app_id=training-3O9HWXNyVT0701KyJIZte787&apex_l1_eg_nonce=%s&apex_l1_eg_signature_method=HMACSHA256&apex_l1_eg_timestamp=1536044563255&apex_l1_eg_version=1.0"
+        }
+    }
+]
