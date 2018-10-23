@@ -62,7 +62,7 @@ func getSignatureBaseString(baseProps APIParam) (string, error) {
 func getSignatureToken(reqProps *APIParam) (string, error) {
 
 	if reqProps.AuthPrefix == "" || reqProps.AppID == "" || reqProps.SignatureURL == "" || reqProps.HTTPMethod == "" {
-		return "", fmt.Errorf("One or more required parameters are missing!")
+		return "", fmt.Errorf("one or more required parameters are missing")
 	}
 
 	authPrefix := strings.ToLower(reqProps.AuthPrefix)

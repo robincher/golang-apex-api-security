@@ -28,7 +28,7 @@ func getRSASignature(message string, privateKey *rsa.PrivateKey) (string, error)
 // It returns the HMAC Signature
 func getHMACSignature(message string, secret string) (string, error) {
 	if message == "" || secret == "" {
-		return "", fmt.Errorf("message and secret must not be null or empty!")
+		return "", fmt.Errorf("message and secret must not be null or empty")
 	}
 
 	messageHMAC := hmac.New(sha256.New, []byte(secret))
@@ -79,7 +79,10 @@ func VerifyRSASignature(message string, rsaPublicKey *rsa.PublicKey, base64Signa
 	byteMessage := []byte(message)
 
 	// convert base64 to []byte
-	signature, _ := base64.StdEncoding.DecodeString(base64Signature)
+	signature, err := base64.StdEncoding.DecodeString(base64Signature)
+	if err != nil {
+		return false, err
+	}
 
 	// Only small messages can be signed directly; thus the hash of a
 	// message, rather than the message itself, is signed. This requires
@@ -88,7 +91,7 @@ func VerifyRSASignature(message string, rsaPublicKey *rsa.PublicKey, base64Signa
 	// of writing (2016).
 	hashed := sha256.Sum256(byteMessage)
 
-	err := rsa.VerifyPKCS1v15(rsaPublicKey, crypto.SHA256, hashed[:], signature)
+	err = rsa.VerifyPKCS1v15(rsaPublicKey, crypto.SHA256, hashed[:], signature)
 	if err != nil {
 		return false, err
 	}
