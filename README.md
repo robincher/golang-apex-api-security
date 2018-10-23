@@ -98,7 +98,7 @@ You can refer them [here](https://github.com/GovTechSG/test-suites-apex-api-secu
 Run the following shell script to pull the test data , execute unit test and print out the test coverage.
 
 ```
-./scripts/run_test.sh
+./scripts/test_coverage.sh
 ```
 
 ### Request Parameters
