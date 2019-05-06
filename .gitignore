@@ -13,6 +13,7 @@
 
 # Project files
 .vscode/*
+.vs/*
 .idea/*
 bin/*
 output/*.html
