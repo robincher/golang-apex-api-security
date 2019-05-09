@@ -87,4 +87,4 @@ After getting the Signature Token, just append it to the Http Header's Authoriza
 	req.Header.Add("Authorization", apexAuthHeader)
 
 */
-package apexsigner
+package main

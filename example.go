@@ -5,7 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/robincher/golang-apex-api-security"
+	"github.com/robincher/golang-apex-api-security/apexsigner"
 )
 
 func main() {

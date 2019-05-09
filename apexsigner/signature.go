@@ -113,3 +113,8 @@ func getSignatureToken(reqProps *APIParam) (string, error) {
 
 	return signatureToken, nil
 }
+
+// GetAuthorizationHeader - Public function to get Apex Signature authorization token to be append on HTTP header
+func GetAuthorizationHeader(reqProps APIParam) (string, error) {
+	return getSignatureToken(&reqProps)
+}

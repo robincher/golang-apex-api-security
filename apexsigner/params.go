@@ -163,8 +163,3 @@ func parseArray(key string, params []interface{}) [][]string {
 	}
 	return paramArray
 }
-
-// GetSignatureToken - Public function to get Apex Signature authorization token to be append on HTTP header
-func GetSignatureToken(reqProps APIParam) (string, error) {
-	return getSignatureToken(&reqProps)
-}
