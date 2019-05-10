@@ -9,7 +9,7 @@ import (
 	"testing"
 )
 
-var BASEPATH = "../helper/"
+var BASEPATH = "../helpers/"
 var STUBPATH = fmt.Sprintf("%s/testdata/", BASEPATH)
 
 //var BASEPATH = fmt.Sprintf("%s/src/github.com/GovTechSG/test-suites-apex-api-security/", os.Getenv("GOPATH"))
