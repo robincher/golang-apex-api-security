@@ -1,4 +1,5 @@
 # Golang HTTP Signature Signer for APEX
+
 [![Codeship Status for robincher/golang-apex-api-security](https://app.codeship.com/projects/55d5cbb0-ae9d-0136-6b4c-7a884fd9a31a/status?branch=master)](https://app.codeship.com/projects/309966)
 [![Go Report Card](https://goreportcard.com/badge/github.com/robincher/golang-apex-api-security)](https://goreportcard.com/report/github.com/robincher/golang-apex-api-security)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
@@ -6,20 +7,24 @@
 
 A golang http signature library for APEX. It main purpose is to provide a quick utility that generates HTTP security headers for authenticating with secured APEX endpoints
 
+This library is still in **BETA Testing** stage
+
 **Security Standards**
 
 1. APEX L1 - HMAC256 HTTP Signature
 2. APEX L2 - RSA256 HTTP Signature
 
-*Currently still in designing and testing phase*
+_Currently still in designing and testing phase_
 
 ## Table of Contents
+
 - [Getting Started](#getting-started)
-    * [Installation](#installation)
-    * [Walkthrough](#walkthrough)
+  - [Installation](#installation)
+  - [Walkthrough](#walkthrough)
+  - [Example](#example)
 - [Request Parameters](#request-parameters)
-    * [Mandatory Parameters](#madatory-parameters)
-    * [Optional Parameters](#optional-parameters)
+  - [Mandatory Parameters](#madatory-parameters)
+  - [Optional Parameters](#optional-parameters)
 - [Contributing](#contributing)
 - [Release](#release)
 - [License](#license)
@@ -82,6 +87,7 @@ apexAuthHeader, err := getSignatureToken(requestOpts)
 ```
 
 #### Appending to the HTTP header
+
 ```
 import net/http example
 
@@ -89,7 +95,7 @@ var req *http.Request
 req.Header.Add("Authorization", apexAuthHeader)
 ```
 
-#### Running  unit test with coverage
+#### Running unit test with coverage
 
 The test data will be pulled from a central package that is shared across all APEX security librares.
 
@@ -114,9 +120,9 @@ Apex App ID. The App needs to be approved and activated by the API provider. Thi
 2. `AuthPrefix`
 
 API gateway-specific authorization scheme for a specific gateway zone. Takes 1 of 4 possible values.
- 
+
 ```
-var authPrefix = 'Apex_l1_ig'; 
+var authPrefix = 'Apex_l1_ig';
 // or
 var authPrefix = 'Apex_l1_eg';
 // or
@@ -130,24 +136,24 @@ var authPrefix = 'Apex_l2_eg';
 The standard HTTP method required for the target resource
 
 4. `InvokeURL`
-The full API endpoint path that you will be invoking , for example https://my-apex-api.api.gov.sg/api/my/specific/data
+   The full API endpoint path that you will be invoking , for example https://my-apex-api.api.gov.sg/api/my/specific/data
 
 **IMPORTANT NOTE**  
-Must be the endpoint URL as served from the Apex gateway, from the domain api.gov.sg. This may differ from the actual HTTP endpoint that you are calling, for example if it were behind a proxy with a different URL.**
+Must be the endpoint URL as served from the Apex gateway, from the domain api.gov.sg. This may differ from the actual HTTP endpoint that you are calling, for example if it were behind a proxy with a different URL.\*\*
 
 5. `SignatureURL`
 
 The API endpoint that is only internally recognised. For examples :
-a) https://my-apex-api.i.api.gov.sg/api/my/specific/data 
-b) https://my-apex-api.e.api.gov.sg/api/my/specific/data 
+a) https://my-apex-api.i.api.gov.sg/api/my/specific/data
+b) https://my-apex-api.e.api.gov.sg/api/my/specific/data
 
 We have plans to remove this inconsistency in the near future, so for now do indicate this parameter into the request parameters, else the signature verification will failed.
 
-5a. `Secret`  - For APEX L1 Security 
+5a. `Secret` - For APEX L1 Security
 
 If the API you are accessing is secured with an APEX L1 policy, you need to provide the generated App secret that corresponds to the `AppID` provided.
 
-5b. `PrivateCertFileName and `Passphrase`  - For APEX L2 Security 
+5b. `PrivateCertFileName and`Passphrase` - For APEX L2 Security
 
 If the API you are access is secured with an APEX L2 policy, you need to provide the private key and passphrase corresponding to the public key uploaded for `AppID`.
 
@@ -162,10 +168,9 @@ var passphrase = "somepassword"
 
 An identifier for the caller, this can be set to any value. (eg https://portal.example.com)
 
-
 2. `QueryString` / `FormData`
 
-**IMPORTANT NOTE**  If you pass in the params in QueryString or FormData, please **remove** the query parameters from both SignatureURL and InvokeURL parameter
+**IMPORTANT NOTE** If you pass in the params in QueryString or FormData, please **remove** the query parameters from both SignatureURL and InvokeURL parameter
 
 2b. QueryString
 
@@ -190,21 +195,33 @@ formData = append(formData, []string{"key", "value"})
 ```
 
 4. `Nonce`
-An arbitrary string, needs to be different after each successful API call. Defaults to 32 bytes random value encoded in base64.
+   An arbitrary string, needs to be different after each successful API call. Defaults to 32 bytes random value encoded in base64.
 
 5. `Timestamp`
-A unix timestamp. Defaults to the current unix timestamp.
+   A unix timestamp. Defaults to the current unix timestamp.
+
+### Example
+
+Run the example app to see how an authorization token for Apex is constructed
+
+```
+go run example.go
+```
 
 ## Contributing
+
 For more information about contributing, and raising PRs or issues, see [CONTRIBUTING.md](https://github.com/GovTechSG/golang-apex-api-security/blob/master/.github/CONTRIBUTING.md).
 
 ## Release
+
 See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
+
 Licensed under the [MIT LICENSE ](https://github.com/GovTechSG/golang-apex-api-security/blob/master/LICENSE)
 
 ## References
-+ [RSA and HMAC Request Signing Standard for HTTP Messages](http://tools.ietf.org/html/draft-cavage-http-signatures-09)
-+ [99Designs Open-sourced HTTP Signature Golang Library](https://github.com/99designs/httpsignatures-go)
-+ [Handling RSA in Go](https://golang.org/src/crypto/rsa/example_test.go?m=text)
+
+- [RSA and HMAC Request Signing Standard for HTTP Messages](http://tools.ietf.org/html/draft-cavage-http-signatures-09)
+- [99Designs Open-sourced HTTP Signature Golang Library](https://github.com/99designs/httpsignatures-go)
+- [Handling RSA in Go](https://golang.org/src/crypto/rsa/example_test.go?m=text)
