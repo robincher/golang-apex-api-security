@@ -1,0 +1,8 @@
+bundles: "auto"
+report:
+  pullRequest:
+    findings: "onChangedLinesOnly"
+    comment: true
+notifications:
+  slack:
+    enabled: false
