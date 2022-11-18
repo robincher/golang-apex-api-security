@@ -44,7 +44,7 @@ func Test_L2Signature(t *testing.T) {
 	executeTest(t, STUBPATH+"rsa_sig.json", func(param *TestParam) (string, error) {
 		result := ""
 
-		privateKey, err := parsePrivateKeyFromPEM(BASEPATH+param.APIParam.PrivateCertFileName, param.APIParam.Passphrase)
+		privateKey, err := parsePrivateKeyFromPEM(param.APIParam.PrivateKeyString, BASEPATH+param.APIParam.PrivateCertFileName, param.APIParam.Passphrase)
 		if err == nil {
 			result, err = getRSASignature(param.Message, privateKey)
 		}

@@ -9,7 +9,7 @@ import (
 	"time"
 )
 
-//APIParam -  API Request parameters struct that instantiate the request options
+// APIParam -  API Request parameters struct that instantiate the request options
 type APIParam struct {
 	Realm        string `json:"realm"`
 	AppID        string `json:"appId"`
@@ -21,6 +21,7 @@ type APIParam struct {
 	HTTPMethod string `json:"httpMethod"`
 	Signature  string `json:"signature"`
 
+	PrivateKeyString    string `json:"privateKeyString"`
 	PrivateCertFileName string `json:"privateCertFileName"`
 	Passphrase          string
 	SignatureMethod     string `json:"signatureMethod"`
