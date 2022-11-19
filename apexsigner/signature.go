@@ -92,7 +92,7 @@ func getSignatureToken(reqProps *APIParam) (string, error) {
 			return "", err
 		}
 	} else {
-		privateKey, err := parsePrivateKeyFromPEM(reqProps.PrivateCertFileName, reqProps.Passphrase)
+		privateKey, err := parsePrivateKeyFromPEM(reqProps.PrivateKeyString, reqProps.PrivateCertFileName, reqProps.Passphrase)
 		if err != nil {
 			return "", err
 		}

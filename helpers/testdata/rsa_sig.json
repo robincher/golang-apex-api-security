@@ -1,6 +1,6 @@
 [
     {
-        "id": "1",
+        "id": "1.1",
         "description": "getRSASignature - Baseline - PEM file without passphrase",
 
         "message" : "message",
@@ -13,6 +13,20 @@
         	"default": "BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g=="
         }
     },
+    {
+      "id": "1.2",
+      "description": "getRSASignature - With PrivateKeyString",
+
+      "message" : "message",
+      "apiParam" : {
+          "privateKeyString": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAnPcPVlXle+5eWZPf+8QJW5zv5b2a6coIvK2Qds5IYER224IC\n9/QQ1BbDsKI+2GCe1Scsgi0IZTeiqw7Z4WnMi1LveCvyxXAMWsKUoxiiIMRK49s4\ncb2Trd6qh54Hjmb5od12jE1l5HY+6JJtnNjAqvZhUtbDzUmmQgoGGQrGAMcQextl\nnrI50MNQIV+tw49eKnSNRtUpseK0lW9SMvEV9xv5HyOL3/KR00fE215iI6dJWB+F\nxf+YpGqIitUTL2Teg+MClNbt4GGx9H8Hr7Lcs/B4JaWr9ZtVPMBhepJQHChNs3/f\n2s55RgkmQIhIZmDS3SBADIfUaXLzRN2Gk5k68wIDAQABAoIBAH0AJ1+q8iE62Dpg\nEAywtn8VwNpln5u1QDX5xsVGS88WVs1CgVizLj+ojVj6LDAm6fZ3xvM4J6prnwi4\nv/zKQ5Fkj75UyXZAYCZbNQGZmWucxsMkjpPN1HCvlYCA8iWOjhhAhKsA7Db/j+Oo\n0NAKsYy0vxa4X5/5mgSXdPm2Ya61mXZeXLb501vdkEk6A3RxFKrNsa5W3S9LwU8v\nmG/0PDpmuqtvuu8B8Bbkb8uU1oqM+XebaRKag1MKKed8aJmgLkbwUcFOrvU5jKiz\n1VI2l+BGDvKfrbGRsLIayb0/777m+4KuygWuYTPyN7Qbb6uOuV+jlZKZJxJBKRtG\nCrGGKjkCgYEAyvACgZnVxaTdK5A08eLx6rpQlEtr474LO3+xF/tdqIE0nfYofv3c\nx+zXgHfuG56bXG3sfQzHAxEBGgORYCUX8CcZwZbAhaTZ6sG0nMqK/1yk3++qxm2I\nDQu2CPlNvdURjIXRbZpDu3HvrL8vOhHN67SMogtSIXZHkSC9F8/ggL0CgYEAxgHM\n8LnxifxdS7rnEfV/h48mBoKTyamTEGWCd0wPn3CkDGsYERzS5x2S4Pe5qhSqCjwE\nL/qIsG2mebp0/+1IgxpYHEAkTopQHvfjaKI4wJaTZ1BZ/AtoC4gc1+2tGmibQ0Wn\n6MfU0/9vBASF8XqUyrAQfTut7viaZxkW7oYcHW8CgYEAhpWro9Wo3v2aLBTj9/Lh\nKyFK5T4rnAriGiByCwyKLYEaqxOgAbBMZk5dEPb4c1q5gA/qgXgi15bEW0M4e0G+\nYWcc/rUCkt8kIjs6k60Dh50iPt0MLbJgQv6cR9FGTHnsvHvWy1A+USabo73bDTDX\nltTTW3gUjNqLVeUXYp5bLiUCgYBCBLmrDaQ+CJmmtVNzxnHV5eGczA6wb0ysa9v7\nIK4Yz/qydUaZ9g1Pp6mgPph139vt+6K9yH+oq3aVIZj+98N0iuUTzkMMuMsL+ESn\nT2cyt0HAcab/BWKUbbaIPCO6KWSTIndggrgwUvtV0JhEMkXH6roktzA//D2m4FOo\nBaj8GwKBgH8L3TdEfKWEPL79FTiT9V8rjFj7azmfxyfhgbXpw0ZKSrchVUyxOhLG\nbe6bPZHe/EjGLK7WzfTkId7UofSu5ONRwyextbVjmSGG9gt3RRif/rCvG49HRG2F\nDbOwDx4IZRROV/7+MWkkJyLWGeFRvj67oraBUaZbJ0FHtmQ7/Vp6\n-----END RSA PRIVATE KEY-----"
+      },
+
+      "testTag" : true,
+      "expectedResult" : {
+          "default": "BYTzB10qy1u0lNTi2CKpn5TfakyKcm4b7q9w3hMkhoupGLklB15N8mNCDxGQrnuPGc0CktLjBEk2+csJ0GLzo/J+p+FuluhMPXn2RvX6GWFhu5RY4d4VzLIy369FyWlu+a4OX5QKJCJ5Lr70TZ82GFW4nYCnqLQa1jLAqtzldLCHprN3Nd1gPP01a/E3N2I70l+q/M8mWdZlJoSI148waSPy+RHbSuRF+23BQ/jKCRrG63TAZAMzuT2prCEXuMFmWZBRPPYVJ1wQvdoot7M99n8o0/1oq5G/Q/pWNi7N6saz9FrF594j+qGi9Sj4PUjvg3FMf2mYj4e2UX0EqTqT9g=="
+      }
+  },
     {
         "id": "2",
         "description": "getRSASignature - Baseline - PEM file with passphrase",
