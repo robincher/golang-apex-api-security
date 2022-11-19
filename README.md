@@ -1,10 +1,9 @@
 # Golang HTTP Signature Signer for APEX
 
-[![Codeship Status for robincher/golang-apex-api-security](https://app.codeship.com/projects/55d5cbb0-ae9d-0136-6b4c-7a884fd9a31a/status?branch=master)](https://app.codeship.com/projects/309966)
 [![Go Report Card](https://goreportcard.com/badge/github.com/robincher/golang-apex-api-security)](https://goreportcard.com/report/github.com/robincher/golang-apex-api-security)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/ellerbrock/open-source-badges/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![GuardRails badge](https://badges.guardrails.io/robincher/golang-apex-api-security.svg)](https://dashboard.guardrails.io/default/gh/robincher/golang-apex-api-security)
+[![GuardRails badge](https://api.guardrails.io/v2/badges/17943?token=6cc8aa845d85145cb657dff4c45e2b2c932689604843f733253a559d49cddfb8)](https://dashboard.guardrails.io/gh/robincher/repos/17943)
 
 A golang http signature library for APEX. It main purpose is to provide a quick utility that generates HTTP security headers for authenticating with secured APEX endpoints
 
